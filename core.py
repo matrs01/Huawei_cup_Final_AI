@@ -49,7 +49,7 @@ class SRDataset(Dataset):
                        x_start * 2:x_start * 2 + self._crop_size * 2,
                        y_start * 2:y_start * 2 + self._crop_size * 2]
         return hr_image.to(device), lr_image.to(device)
-        
+
 
 
 
@@ -76,13 +76,6 @@ class InferDataset(Dataset):
         return name, hr_image.to(device)
 
 
-
-
-def make_layer(block: Callable, n_layers: int) -> nn.Sequential:
-    layers = []
-    for _ in range(n_layers):
-        layers.append(block())
-    return nn.Sequential(*layers)
 
 
 
